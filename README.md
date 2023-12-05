@@ -6,7 +6,6 @@ In response to https://github.com/orgs/community/discussions/11729#discussioncom
 
 ## TODO
 
-- [ ] add a bunch of tests.
 - [ ] figure out how to serve as an easy to install script
 
 # Development
