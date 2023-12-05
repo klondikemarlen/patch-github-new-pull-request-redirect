@@ -8,3 +8,13 @@ In response to https://github.com/orgs/community/discussions/11729#discussioncom
 
 - [ ] add a bunch of tests.
 - [ ] figure out how to serve as an easy to install script
+
+# Development
+
+1. Install `asdf` via https://asdf-vm.com/guide/getting-started.html.
+2. Install the the node tool version via `asdf install nodejs`
+3. Run `npm install` to install the required packages.
+
+# Testing
+
+1. Run `npm run test.

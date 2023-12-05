@@ -36,17 +36,19 @@
         const urlSegments = currentHref.split("/")
         const repoOwner = urlSegments[3]
         const repoName = urlSegments[4]
-        const queryParams = currentHref.split("?")[1]
+
 
         // Change the button's href attribute to the desired URL
         // Check if the URL includes a specific branch
         // e.g. https://github.com/icefoganalytics/travel-authorization/compare/issue-119/implement-correcting-lines-for-non-travel-status-days-on-estimate-tab?expand=1
-        if (currentHref.includes("/compare/")) {
-            // Extract the branch name
-            const branchName = urlSegments[6] + urlSegments[7].split("?")[0]
+        const buttonHref = newPullRequestButton.href
+        if (buttonHref.includes("/compare/")) {
+            const buttonUrlSegments = buttonHref.split("/")
+            const branchName = [buttonUrlSegments[6], buttonUrlSegments[7].split("?")[0]].join("/")
+            const queryParams = buttonHref.split("?")[1]
 
             // Adjust the button's href for the specific branch
-            // e.g. https://github.com/ytgov/travel-authorization/compare/main...icefoganalytics:travel-authorization:issue-119/implement-correcting-lines-for-non-travel-status-days-on-estimate-tab?expand=1
+            // e.g. https://github.com/icefoganalytics/travel-authorization/compare/main...icefoganalytics:travel-authorization:issue-119/implement-correcting-lines-for-non-travel-status-days-on-estimate-tab?expand=1
             newPullRequestButton.href = `/${repoOwner}/${repoName}/compare/main...${repoOwner}:${repoName}:${branchName}?${queryParams}`
         } else {
             // Default behavior for the main branch
