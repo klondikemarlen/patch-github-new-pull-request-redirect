@@ -1,13 +1,15 @@
 // ==UserScript==
 // @name         GitHub Restore Default Pull Request Redirect
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      2.0
 // @description  Redirect the "New pull request" button on GitHub to a create a Pull Request against the main branch of this repo, and _not_ the upstream repo
 // @author       Marlen
 // @match        https://github.com/*/pulls
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=github.com
 // @grant        none
 // @run-at       document-body
+// @updateURL    https://raw.githubusercontent.com/klondikemarlen/patch-github-new-pull-request-redirect/main/main.js
+// @downloadURL  https://raw.githubusercontent.com/klondikemarlen/patch-github-new-pull-request-redirect/main/main.js
 // ==/UserScript==
 
 ;(function () {
