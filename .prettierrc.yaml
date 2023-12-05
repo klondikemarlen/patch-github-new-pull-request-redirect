@@ -1,0 +1,10 @@
+# .prettierrc or .prettierrc.yaml
+$schema: "https://json.schemastore.org/prettierrc"
+embeddedLanguageFormatting: "auto"
+trailingComma: "es5"
+tabWidth: 2
+semi: false
+singleQuote: false
+singleAttributePerLine: true
+useTabs: false
+printWidth: 100
