@@ -16,4 +16,4 @@ In response to https://github.com/orgs/community/discussions/11729#discussioncom
 
 # Testing
 
-1. Run `npm run test.
+1. Run `npm run test`.
