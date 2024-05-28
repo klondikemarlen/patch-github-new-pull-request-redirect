@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Restore Default Pull Request Redirect
 // @namespace    http://tampermonkey.net/
-// @version      4.0
+// @version      5.0
 // @description  Redirect the "New pull request" button on GitHub to a create a Pull Request against the main branch of this repo, and _not_ the upstream repo
 // @author       Marlen
 // @match        https://github.com/*
@@ -37,15 +37,13 @@
         const repoOwner = urlSegments[3]
         const repoName = urlSegments[4]
 
-
         // Change the button's href attribute to the desired URL
         // Check if the URL includes a specific branch
         // e.g. https://github.com/icefoganalytics/travel-authorization/compare/issue-119/implement-correcting-lines-for-non-travel-status-days-on-estimate-tab?expand=1
         const buttonHref = newPullRequestButton.href
         if (buttonHref.includes("/compare/")) {
-            const buttonUrlSegments = buttonHref.split("/")
-            const branchName = [buttonUrlSegments[6], buttonUrlSegments[7].split("?")[0]].join("/")
-            const queryParams = buttonHref.split("?")[1]
+            const [urlPart, queryParams] = buttonHref.split("?")
+            const [_repoPath, branchName] = urlPart.split("/compare/", 7)
 
             // Adjust the button's href for the specific branch
             // e.g. https://github.com/icefoganalytics/travel-authorization/compare/main...icefoganalytics:travel-authorization:issue-119/implement-correcting-lines-for-non-travel-status-days-on-estimate-tab?expand=1
